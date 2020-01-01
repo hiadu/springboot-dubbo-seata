@@ -28,8 +28,9 @@ public class StorageServiceImpl implements StorageService {
         	int upCount = storageMapper.decreaseStorage(storage);
         	return upCount;
         } catch (Exception e) {
-        	e.printStackTrace();
+        	logger.info("扣减库存发生异常", e);
+        	throw e;
         }
-        return 0;
     }
+    
 }

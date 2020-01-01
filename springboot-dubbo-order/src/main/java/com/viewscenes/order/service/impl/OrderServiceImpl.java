@@ -1,7 +1,6 @@
 package com.viewscenes.order.service.impl;
 
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
@@ -23,16 +22,19 @@ import io.seata.spring.annotation.GlobalTransactional;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
+	Logger logger = LoggerFactory.getLogger(this.getClass());
+
+	@Autowired
     OrderMapper orderMapper;
 
     @Reference
     StorageDubboService storageDubboService;
 
-    AtomicInteger order_id = new AtomicInteger(0);
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
-
+    
+    /**
+     * 创建订单
+     */
     @Override
     @GlobalTransactional
     public void createOrder(OrderDTO orderDTO) throws Exception {
@@ -46,14 +48,13 @@ public class OrderServiceImpl implements OrderService {
     		storageDubboService.decreaseStorage(storageDTO);
     		
     		//2、创建订单
-    		orderDTO.setId(order_id.incrementAndGet());
     		orderDTO.setOrderNo(UUID.randomUUID().toString());
     		Order order = new Order();
     		BeanUtils.copyProperties(orderDTO, order);
     		orderMapper.createOrder(order);
     		
     		if (true) {
-    			System.err.println("test rollback");
+//    			System.err.println("test rollback");
 //    			throw new Exception("test...");
     		}
     		
@@ -62,6 +63,6 @@ public class OrderServiceImpl implements OrderService {
     		e.printStackTrace();
     		throw e;
 		}
-
     }
+    
 }
