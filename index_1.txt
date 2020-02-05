@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,viewport-fit=cover">
+	<meta name='format-detection' content='telephone=no,email=no,adress=no'>
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<title>丰保</title>
+	<!-- https://ibnscms.sf-express.com:444 -->
+
+	<link rel="stylesheet" href="https://ibnscms.sf-express.com:444/style/css/common_sy.css">
+	<link rel="stylesheet" href="https://ibnscms.sf-express.com:444/style/css/basemobile.css">
+	<link rel="stylesheet" href="https://ibnscms.sf-express.com:444/style/css/home_tb.css">
+	<link rel="stylesheet" href="https://ibnscms.sf-express.com:444/style/css/swiper.min.css">
+	<link rel="stylesheet" href="https://ibnscms.sf-express.com:444/style/css/rem.css">
+	<script src="https://ibnscms.sf-express.com:444/js/rem.js"></script>
+	<style>
+		body {
+			background: #F7F7F7;
+		}
+		.modal {
+			position: fixed;
+			left: 0;
+			right: 0;
+			background: #ccc;
+			z-index: 9999993;
+			top: 0;
+			bottom: 0;
+			/* opacity: 0.6; */
+		}
+	
+		.modal-container {
+			z-index: 9999994;
+			width: 160px;
+			height: 150px;
+			padding: 5px;
+			top: 43%;
+			margin-top: -75px;
+			margin-left: -80px;
+			position: fixed;
+			left: 50%;
+			color: #fff;
+	
+			text-align: center;
+		}
+	
+		.modal-container img {
+			width: 50px;
+			height: 50px;
+			margin: 20px auto;
+		}
+	
+		.loding_txt {
+			width: 100%;
+			font-size: .5rem;
+		}
+	</style>
+</head>
+
+<body onload="load()">
+		<div id="loading">
+			<div class="modal"></div>
+			<div class="modal-container">
+				<img align="center" src="https://ibnscms.sf-express.com:444/images/vueImage/vue_loding.gif" alt="">
+				<div class="loding_txt" align="center" style="display:block;font-size:20px;">
+					正在加载...
+				</div>
+			</div>
+		</div>
+	<!-- <body> -->
+	<div id="pagecontent">
+		<!-- 主体部分 -->
+		<section class="mainCon" id="main">
+			<!-- 投保 -->
+			<div id="myPolicy" class="myPolicy myPolicy1">
+				<div class="BannerTop">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							
+
+								<div class="swiper-slide">
+									<!-- <a href=""> -->
+									<img src="https://ibnscms.sf-express.com:444/upload/Image/lbt4/2221432245.png" />
+									<!-- </a> -->
+								</div>
+							
+
+								<div class="swiper-slide">
+									<!-- <a href=""> -->
+									<img src="https://ibnscms.sf-express.com:444/upload/Image/lbt4/2219256316.jpg" />
+									<!-- </a> -->
+								</div>
+							
+
+								<div class="swiper-slide">
+									<!-- <a href=""> -->
+									<img src="https://ibnscms.sf-express.com:444/upload/Image/lbt4/2219239193.jpg" />
+									<!-- </a> -->
+								</div>
+							
+
+								<div class="swiper-slide">
+									<!-- <a href=""> -->
+									<img src="https://ibnscms.sf-express.com:444/upload/Image/lbt4/2219211567.jpg" />
+									<!-- </a> -->
+								</div>
+							
+
+								<div class="swiper-slide">
+									<!-- <a href=""> -->
+									<img src="https://ibnscms.sf-express.com:444/upload/Image/lbt4/2219193439.jpg" />
+									<!-- </a> -->
+								</div>
+							
+						</div>
+						<!-- Add Pagination -->
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<div class="ConMiddle">
+					<div class="first">
+						<div class="policyCon" id="policyConqq" style="background:#fff;">
+
+							<!--  -->
+
+							
+
+						</div>
+						<div class="policyCon" id="policyConqq">
+							<p class="strnav"></p>
+							<div class="ConMiddle">
+								<div class="tabBtn" id="ins">
+									<ul class="qbx">
+										<li @click='insurance=1':class='{active:insurance==1}'>重疾险<span></span></li><li @click='insurance=2':class='{active:insurance==2}'>意外险<span></span></li><li @click='insurance=3':class='{active:insurance==3}'>医疗险<span></span></li><li class='hundred'  @click='insurance=100':class='{active:insurance==100}' style='display:none;'>高管<span></span></li><li class='ten' @click='insurance=101':class='{active:insurance==101}' style='display:none;'>高管公费<span></span></li></ul></div><div class='first' id='rep'><div class='policyCon hid' id='policyConqq' v-show=' insurance==0'></div><div class='policyCon hid' id='policyConqq' v-show=' insurance==1'><div class='bxlist'  id='222158'  onclick='skip(222158)'><div class='bxright bxright2 bx'><div class='bxtop'>员工重疾险月度方案一</div><div class='bxcenter'>40种重疾，保额高达20万，无等待期</div><div class='bxbottom'>￥<span class='money'>103.85<font size='0.2rem'> 起</font></span></div></div></div><div class='bxlist'  id='222155'  onclick='skip(222155)'><div class='bxright bxright2 bx'><div class='bxtop'>员工重疾险方案二</div><div class='bxcenter'>40种重疾+12种轻症，保额高达40万，无等待期，保费仅需426元</div><div class='bxbottom'>￥<span class='money'>426.00</span></div></div></div><div class='bxlist'  id='222159'  onclick='skip(222159)'><div class='bxright bxright2 bx'><div class='bxtop'>员工重疾险月度方案二</div><div class='bxcenter'>40种重疾+12种轻症，保额高达40万，无等待期</div><div class='bxbottom'>￥<span class='money'>285.42<font size='0.2rem'> 起</font></span></div></div></div><div class='bxlist'  id='222154'  onclick='skip(222154)'><div class='bxright bxright2 bx'><div class='bxtop'>员工重疾险方案一</div><div class='bxcenter'>40种重疾，保额高达20万，无等待期，保费仅需155元</div><div class='bxbottom'>￥<span class='money'>155.00</span></div></div></div></div><div class='policyCon hid' id='policyConqq' v-show=' insurance==2'><div class='bxlist'  id='222108'  onclick='skip(222108)'><div class='bxright bxright2 bx'><div class='bxtop'>员工综合意外伤害保险</div><div class='bxcenter'>保额高，交通意外额外给付，保额最高达150万； 保障全，意外/猝死/意外医疗/住院津贴全面保障。</div><div class='bxbottom'>￥<span class='money'>100.00</span></div></div></div><div class='bxlist'  id='222109'  onclick='skip(222109)'><div class='bxright bxright2 bx'><div class='bxtop'>境外旅游意外伤害保险</div><div class='bxcenter'>综合保障，申根国家任你走； 超高性价比，6元起即可保90天。</div><div class='bxbottom'>￥<span class='money'>6.00<font size='0.2rem'> 起</font></span></div></div></div></div><div class='policyCon hid' id='policyConqq' v-show=' insurance==3'><div class='bxlist'  id='222136'  onclick='skip(222136)'><div class='bxright bxright2 bx'><div class='bxtop'>顺e保百万医疗</div><div class='bxcenter'>可报销社保外医疗费用，重疾险、社保的好搭档</div><div class='bxbottom'>￥<span class='money'>106.00<font size='0.2rem'> 起</font></span></div></div></div></div><div class='policyCon hid hundred' id='policyConqq' v-show='insurance==100'></div><div class='policyCon hid ten' id='policyConqq' v-show='insurance==101'></div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>   
+		</section>
+		<div class="record"></div>
+		<!-- <div class="record">©2019 360.CN 顺丰旗下服务 京ICP备08010314号-19 京公网安备11000002000022号</div> -->
+		<input type="hidden" id="uid">
+		<input type="hidden" id="entryDate">
+		<!-- 底部部分开始 -->
+		<!-- 底部tab切换 -->
+<div class="navfoot" id="fbtn">
+        <input type='hidden' id='cha_id' name='cha_id' value='6'>
+        <div class="insure">
+            <a href="https://ibnscms.sf-express.com:444/index.shtml">
+                <dl class="active">
+                    <dt></dt>
+                    <dd>投保</dd>
+                </dl>
+            </a>  
+        </div>
+        <div class="warranty qh">
+            <a href="https://ibnscms.sf-express.com:444/wdbd/index.shtml">
+                <dl>
+                    <dt></dt>
+                    <dd> 我的保单</dd>
+                </dl>
+            </a>
+        </div>
+        <div class="payfor qh">
+            <a href="https://ibnscms.sf-express.com:444/lp/index.shtml">
+                <dl>
+                    <dt></dt>
+                    <dd>理赔</dd>
+                </dl>
+            </a>
+        </div>
+    </div>
+		<!-- 底部部分结束 -->
+	</div>
+	<script src="https://ibnscms.sf-express.com:444/js/swiper.min.js"></script>
+	<script src="https://ibnscms.sf-express.com:444/js/vue.js"></script>
+	<script src="https://ibnscms.sf-express.com:444/js/jquery-1.10.2.min.js"></script>
+	<script src="https://ibnscms.sf-express.com:444/js/jquery.cookie.js"></script>
+	<script src="https://ibnscms.sf-express.com:444/js/base.js"></script>
+	<script src="https://ibnscms.sf-express.com:444/js/index_vue.js"></script>
+	<script>
+
+		var cha_id = $("#cha_id").val();
+		sessionStorage.setItem("cha_id", cha_id);
+
+		// 函数中的参数为 要获取的cookie键的名称。
+			function getCookie(userName) {
+				if (document.cookie.length > 0) {
+					c_start = document.cookie.indexOf(userName + "=");
+					if (c_start != -1) {
+						c_start = c_start + userName.length + 1;
+						c_end = document.cookie.indexOf(";", c_start);
+						if (c_end == -1) {
+							c_end = document.cookie.length;
+						}
+						return unescape(document.cookie.substring(c_start, c_end));
+					}
+				}
+				return "";
+			}
+			// var userName = getCookie('token');
+		
+		function load() {
+			// appendLoadings("正在加载...");
+			// token内容
+			var token = getCookie("token");
+			var code = getCookie("code");
+			var empId = getCookie('empId');
+			var executive = getCookie("executive");
+
+			sound();
+
+			// 企保员工信息
+			$.ajax({
+				url: sinosoft.base + "/supplier/userPlan.action?empId=" + empId + "&empQueryType=1&schemeQueryType=1&executive=1",
+				// url: "http://100.118.118.43:8089/sfcms/supplier/userPlan.action?empId=l8Qe9ffwd7sokJVVMsk7qg==&empQueryType=1&schemeQueryType=1&executive=1",
+				type: "post",
+				async: false,
+				success: function (data) {
+					data = JSON.parse(data);
+					datas = data;
+					console.log(data.empList);
+					if (data.empList != "") {
+						$.each(data.empList, function (i) {
+							if (data.empList[i].insuredRelation == "SELF") {
+								$.cookie('empNo',data.empList[i].empNo);
+							}
+						})
+					}
+				}
+			})
+
+			// $.ajax({
+			// 	url: sinosoft.base + "/supplier/checkToken.action?token=" + token,
+			// 	type: "post",
+			// 	async: false,
+			// 	success: function (data) {
+			// 		data = JSON.parse(data);
+			// 		if(data.flag != true){
+			// 			window.location.href = "https://ibnscms.sf-express.com:444/qxts/index.shtml";
+			// 		}
+			// 	}
+			// })
+			
+			// 员工id
+
+			//是否高管
+			// var executive = GetQueryString("executive");
+			 sessionStorage.setItem("code",code);
+			sessionStorage.setItem("executive",executive);
+			// sessionStorage.setItem("empId",empId);
+			// sessionStorage.setItem("token",token);
+			var executive1 = sessionStorage.getItem("executive");
+
+			// 匹配是否高管的特定方案计划
+			if (executive == "1" || executive1 == "1") {
+				if (executive == null) {
+					var empId = sessionStorage.getItem("empId");
+					var executive = sessionStorage.getItem("executive");
+					$.ajax({
+						url: sinosoft.base + "/supplier/productList.action?empId=" + empId + "&empQueryType=1&schemeQueryType=1&executive=" + executive,
+						// url: "http://100.118.118.43:8089/sfcms/supplier/productList.action?empId=JAvVWevj7nR1vrtAm9V/QA==&empQueryType=1&schemeQueryType=1&executive=1",
+						type: "POST",
+						async: false,
+						dataType: "text",
+						success: function (data) {
+							if (data != "" && data != null && data != undefined) {
+								data = JSON.parse(data);
+								console.log(data);
+								var list, lists;
+								for (var i = 0; i < data.length; i++) {
+									if (data[i].feeType == "1") {
+										if (data[i].logo == "") {
+											var lists = "<div class=\"bxlist\" id=" + data[i].id + " onclick=\"skips('" + data[i].id + "','" + data[i].feeType + "','" + data[i].chnlCode + "')\">" +
+												"<div class=\"bxright bxright2 bx\">" +
+												"<div class=\"bxtop\">" + data[i].title + "</div>" +
+												"<div class=\"bxcenter\">" + data[i].metaDescription + "</div>" +
+												"<div class=\"bxbottom\">￥<span class=\"money\">0.00</span><span class=\"bxtext2\"></span></div>" +
+												"</div >" +
+												"</div>";
+											$(".ten").eq(1).append(lists);
+										} else {
+											var lists = "<div class=\"bxlist\" id=" + data[i].id + " onclick=\"skips('" + data[i].id + "','" + data[i].feeType + "','" + data[i].chnlCode + "')\">" +
+												"<div class=\"bxleft bx\" > <img src=\"data:image/png;base64," + data[i].logo + "\" alt=\"\"></div>" +
+												"<div class=\"bxright bx\">" +
+												"<div class=\"bxtop\"><span></span>" + data[i].title + "</div>" +
+												"<div class=\"bxcenter\">" + data[i].metaDescription + "</div>" +
+												"<div class=\"bxbottom\">￥<span class=\"money\">0.00</span><span class=\"bxtext\"></span></div>" +
+												"</div>" +
+												"</div >";
+											$(".ten").eq(1).append(lists);
+										}
+									}
+									else if (data[i].feeType == "2") {
+										if (data[i].logo == "") {
+											var list = "<div class=\"bxlist\" id=" + data[i].id + " onclick=\"skips('" + data[i].id + "','" + data[i].feeType + "','" + data[i].chnlCode + "')\">" +
+												"<div class=\"bxright bxright2 bx\">" +
+												"<div class=\"bxtop\">" + data[i].title + "</div>" +
+												"<div class=\"bxcenter\">" + data[i].metaDescription + "</div>" +
+												"<div class=\"bxbottom\">￥<span class=\"money\">" + data[i].textValue + "</span><span class=\"bxtext2\"></span></div>" +
+												"</div >" +
+												"</div>";
+											$(".hundred").eq(1).append(list);
+										} else {
+											var list = "<div class=\"bxlist\" id=" + data[i].id + " onclick=\"skips('" + data[i].id + "','" + data[i].feeType + "','" + data[i].chnlCode + "')\">" +
+												"<div class=\"bxleft bx\" > <img src=\"data:image/png;base64," + data[i].logo + "\" alt=\"\"></div>" +
+												"<div class=\"bxright bx\">" +
+												"<div class=\"bxtop\"><span></span>" + data[i].title + "</div>" +
+												"<div class=\"bxcenter\">" + data[i].metaDescription + "</div>" +
+												"<div class=\"bxbottom\">￥<span class=\"money\">" + data[i].textValue + "</span><span class=\"bxtext\"></span></div>" +
+												"</div>" +
+												"</div >";
+											$(".hundred").eq(1).append(list);
+										}
+									}
+								}
+								if (list != undefined) {
+									$(".hundred").eq(0).css("display", "");
+								}
+								if (lists != undefined) {
+									$(".ten").eq(0).css("display", "");
+								}
+							}
+						}
+					})
+				}
+				else {
+					$.ajax({
+						url: sinosoft.base + "/supplier/productList.action?empId=" + empId + "&empQueryType=1&schemeQueryType=1&executive=" + executive,
+						// url: "http://100.118.118.43:8089/sfcms/supplier/productList.action?empId=JAvVWevj7nR1vrtAm9V/QA==&empQueryType=1&schemeQueryType=1&executive=1",
+						type: "POST",
+						async: false,
+						dataType: "text",
+						success: function (data) {
+							data = JSON.parse(data);
+							console.log(data);
+							var list, lists;
+							if (data != "" && data != null && data != undefined) {
+								for (var i = 0; i < data.length; i++) {
+									if (data[i].feeType == "1") {
+										if (data[i].logo == "") {
+											var lists = "<div class=\"bxlist\" id=" + data[i].id + " onclick=\"skips('" + data[i].id + "','" + data[i].feeType + "','" + data[i].chnlCode + "')\">" +
+												"<div class=\"bxright bxright2 bx\">" +
+												"<div class=\"bxtop\">" + data[i].title + "</div>" +
+												"<div class=\"bxcenter\">" + data[i].metaDescription + "</div>" +
+												"<div class=\"bxbottom\">￥<span class=\"money\">0.00</span><span class=\"bxtext2\"></span></div>" +
+												"</div >" +
+												"</div>";
+											$(".ten").eq(1).append(lists);
+										} else {
+											var lists = "<div class=\"bxlist\" id=" + data[i].id + " onclick=\"skips('" + data[i].id + "','" + data[i].feeType + "','" + data[i].chnlCode + "')\">" +
+												"<div class=\"bxleft bx\" > <img src=\"data:image/png;base64," + data[i].logo + "\" alt=\"\"></div>" +
+												"<div class=\"bxright bx\">" +
+												"<div class=\"bxtop\"><span></span>" + data[i].title + "</div>" +
+												"<div class=\"bxcenter\">" + data[i].metaDescription + "</div>" +
+												"<div class=\"bxbottom\">￥<span class=\"money\">0.00</span><span class=\"bxtext\"></span></div>" +
+												"</div>" +
+												"</div >";
+											$(".ten").eq(1).append(lists);
+										}
+									}
+									else if (data[i].feeType == "2") {
+										if (data[i].logo == "") {
+											var list = "<div class=\"bxlist\" id=" + data[i].id + " onclick=\"skips('" + data[i].id + "','" + data[i].feeType + "','" + data[i].chnlCode + "')\">" +
+												"<div class=\"bxright bxright2 bx\">" +
+												"<div class=\"bxtop\">" + data[i].title + "</div>" +
+												"<div class=\"bxcenter\">" + data[i].metaDescription + "</div>" +
+												"<div class=\"bxbottom\">￥<span class=\"money\">" + data[i].textValue + "</span><span class=\"bxtext2\"></span></div>" +
+												"</div >" +
+												"</div>";
+											$(".hundred").eq(1).append(list);
+										} else {
+											var list = "<div class=\"bxlist\" id=" + data[i].id + " onclick=\"skips('" + data[i].id + "','" + data[i].feeType + "','" + data[i].chnlCode + "')\">" +
+												"<div class=\"bxleft bx\" > <img src=\"data:image/png;base64," + data[i].logo + "\" alt=\"\"></div>" +
+												"<div class=\"bxright bx\">" +
+												"<div class=\"bxtop\"><span></span>" + data[i].title + "</div>" +
+												"<div class=\"bxcenter\">" + data[i].metaDescription + "</div>" +
+												"<div class=\"bxbottom\">￥<span class=\"money\">" + data[i].textValue + "</span><span class=\"bxtext\"></span></div>" +
+												"</div>" +
+												"</div >";
+											$(".hundred").eq(1).append(list);
+										}
+									}
+								}
+								if (list != undefined) {
+									$(".hundred").eq(0).css("display", "");
+								}
+								if (lists != undefined) {
+									$(".ten").eq(0).css("display", "");
+								}
+							}
+						}
+					})
+				}
+
+			}
+
+
+			if (code == null) {
+				var code = getCookie("code");
+				var empId = getCookie('empId');
+				var executive = getCookie("executive");
+				// var token = sessionStorage.getItem("token");
+				$.ajax({
+					url: sinosoft.base + "/supplier/user.action?code=" + code,
+					type: "post",
+					async: false,
+					success: function (data) {
+						data = JSON.parse(data);
+						if (data != "" && data != null && data != undefined) {
+							$("#uid").val(data.uid);
+							$("#entryDate").val(data.entryDate);
+							sessionStorage.setItem("uid", data.uid);
+							$.cookie('uid',data.uid);
+							var cha_id = $("#cha_id").val();
+							Two();
+						}
+						// removeLoading();
+						$("#loading").css("display", "none")
+					}
+				})
+				// removeLoading();
+			}
+			else {
+				// sessionStorage.setItem("code", code);
+				// sessionStorage.setItem("executive", executive);
+				// sessionStorage.setItem("empId", empId);
+				// sessionStorage.setItem("token", token);
+				var code = getCookie("code");
+				$.ajax({
+					url: sinosoft.base + "/supplier/user.action?code=" + code,
+					type: "post",
+					async: false,
+					success: function (data) {
+						data = JSON.parse(data);
+						if (data != "" && data != null && data != undefined) {
+							$("#uid").val(data.uid);
+							$.cookie('uid',data.uid);
+							$("#entryDate").val(data.entryDate);
+							sessionStorage.setItem("uid", data.uid);
+							var cha_id = $("#cha_id").val();
+							Two();
+						}
+						// removeLoading();
+						$("#loading").css("display", "none")
+					}
+				})
+				// removeLoading();
+			}
+		}
+
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null)
+				return decodeURI(r[2]);
+			return null;
+		}
+
+		function Two() {
+			// 获取产品编号回传编码进行上下架判断
+			var arr = [];
+			$(".bxlist").each(function (i) {
+				var id = $('.bxlist')[i].id;
+				arr.push(id);
+			})
+			arr = arr.join();
+			var entryDate = $("#entryDate").val();
+			$.ajax({
+				url: sinosoft.base + "/supplier/status.action?str=" + arr + "&cha_id=" + cha_id,
+				type: "post",
+				async: false,
+				success: function (data) {
+					data = JSON.parse(data);
+					// sessionStorage.setItem("cha_id",data[0].cha_id);
+					// $("#cha_id").val(data[0].cha_id);
+					if (data != "" && data != null && data != undefined) {
+						$(".bxlist").each(function (i) {
+							var id = $('.bxlist')[i].id;
+							$(".bxlist").each(function (j) {
+								if (id == data[j].id && data[j].status == "0") {
+									if ($(".bxlist").eq(i).find(".bxright2").length != 0) {
+										$(".bxright2").eq(i).append("<div class=" + 'bxzz' + "></div>");
+										$(".bxright2").eq(i).append("<img class=" + 'yxj' + " src="+ 'https://ibnscms.sf-express.com:444/style/images/yxj.png' +">");
+									} else {
+										$(".bxlist").eq(i).append("<div class=" + 'bxzz' + "></div>");
+										$(".bxlist").eq(i).append("<img class=" + 'yxj' + " src="+ 'https://ibnscms.sf-express.com:444/style/images/yxj.png' +">");
+									}
+								}
+							})
+						})
+					}
+				}
+			})
+
+			$.ajax({
+				url: sinosoft.base + "/supplier/hidden.action?str=" + arr + "&cha_id=" + cha_id + "&entryDate=" + entryDate,
+				type: "post",
+				async: false,
+				success: function (data) {
+					data = JSON.parse(data);
+					console.log(data);
+					if (data != "" && data != null && data != undefined) {
+						$(".bxlist").each(function (i) {
+							var id = $('.bxlist')[i].id;
+							$(".bxlist").each(function (j) {
+								if (id == data[j].id && data[j].status == "0") {
+									$(".bxlist").eq(i).css("display", "none");
+								}
+							})
+						})
+					}
+
+				}
+			})
+		}
+
+		function skip(id, feeType) {
+			var uid = $("#uid").val();
+			var entryDate = $("#entryDate").val();
+			var code = sessionStorage.getItem("code");
+			$.ajax({
+				url: sinosoft.base + "/supplier/codeurl.action?cha_id=" + cha_id + "&id=" + id + "&uid=" + uid + "&entryDate=" + entryDate + "&feeType=" + feeType,
+				// url: "http://100.118.118.43:8089/sfcms/supplier/codeurl.action?cha_id="+cha_id+"&id="+id+"&uid="+uid+"&entryDate="+entryDate,
+				type: "post",
+				success: function (data) {
+					data = JSON.parse(data);
+					console.log(data);
+					// var code = sessionStorage.getItem("code");
+					if (data.status == "1") {
+						window.location.href = data.url + code;
+					} else if (data.status == "0") {
+						alert(data.message);
+					}
+				}
+			})
+		}
+
+		function skips(id, feeType,chnlCode) {
+			var uid = $("#uid").val();
+			var entryDate = $("#entryDate").val();
+			// var code = sessionStorage.getItem("code");
+			//var code = getCookie("code");
+			$.ajax({
+				url: sinosoft.base + "/supplier/codeurl.action?cha_id=" + chnlCode + "&id=" + id + "&uid=" + uid + "&entryDate=" + entryDate + "&feeType=" + feeType,
+				// url: "http://100.118.118.43:8089/sfcms/supplier/codeurl.action?cha_id="+cha_id+"&id="+id+"&uid="+uid+"&entryDate="+entryDate,   
+				type: "post",
+				success: function (data) {
+					data = JSON.parse(data);
+					console.log(data);
+                        //var code = getCookie('code');
+					 var code = sessionStorage.getItem("code");
+					if (data.status == "1") {
+						window.location.href = data.url + code;
+					} else if (data.status == "0") {
+						alert(data.message);
+					}
+				}
+			})
+		}
+
+		var swiper = new Swiper('.swiper-container', {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			loop: true,
+			autoplay: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+		});
+	</script>
+</body>
+
+</html>
